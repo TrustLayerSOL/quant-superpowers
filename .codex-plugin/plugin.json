@@ -1,31 +1,32 @@
 {
-  "name": "superpowers",
-  "version": "5.0.7",
-  "description": "An agentic skills framework & software development methodology that works: planning, TDD, debugging, and collaboration workflows.",
+  "name": "quant-superpowers",
+  "version": "1.0.0",
+  "description": "Quant-focused, proportional planning, testing, debugging, and delivery workflows for Codex.",
   "author": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com",
-    "url": "https://github.com/obra"
+    "name": "TrustLayerSOL",
+    "url": "https://github.com/TrustLayerSOL"
   },
-  "homepage": "https://github.com/obra/superpowers",
-  "repository": "https://github.com/obra/superpowers",
+  "homepage": "https://github.com/TrustLayerSOL/quant-superpowers",
+  "repository": "https://github.com/TrustLayerSOL/quant-superpowers",
   "license": "MIT",
   "keywords": [
-    "brainstorming",
-    "subagent-driven-development",
+    "quant",
+    "trading-bots",
+    "research",
+    "replay",
+    "backtesting",
     "skills",
     "planning",
     "tdd",
     "debugging",
-    "code-review",
-    "workflow"
+    "verification"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Superpowers",
-    "shortDescription": "Planning, TDD, debugging, and delivery workflows for coding agents",
-    "longDescription": "Use Superpowers to guide agent work through brainstorming, implementation planning, test-driven development, systematic debugging, parallel execution, code review, and finish-the-branch workflows.",
-    "developerName": "Jesse Vincent",
+    "displayName": "Quant Superpowers",
+    "shortDescription": "Proportional workflows for quant research and trading systems",
+    "longDescription": "Use compact, proportional planning, testing, debugging, and verification workflows tuned for quantitative research, replay-safe strategy development, and trading-bot engineering.",
+    "developerName": "TrustLayerSOL",
     "category": "Coding",
     "capabilities": [
       "Interactive",
@@ -33,12 +34,8 @@
       "Write"
     ],
     "defaultPrompt": [
-      "I've got an idea for something I'd like to build.",
-      "Let's add a feature to this project."
-    ],
-    "brandColor": "#F59E0B",
-    "composerIcon": "./assets/superpowers-small.svg",
-    "logo": "./assets/app-icon.png",
-    "screenshots": []
+      "Use Quant Superpowers to investigate and validate a quantitative edge.",
+      "Use the proportional workflow to build or debug this trading system."
+    ]
   }
 }

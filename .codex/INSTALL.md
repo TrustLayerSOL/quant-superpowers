@@ -1,46 +1,35 @@
-# Installing Superpowers for Codex
+# Installing Quant Superpowers for Codex
 
-Enable superpowers skills in Codex via native skill discovery. Just clone and symlink.
+Enable Quant Superpowers globally through Codex native skill discovery.
 
 ## Prerequisites
 
 - Git
+- OpenAI Codex
 
-## Installation
+## Install
 
-1. **Clone the superpowers repository:**
-   ```bash
-   git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
-   ```
+1. Clone the repository:
 
-2. **Create the skills symlink:**
-   ```bash
-   mkdir -p ~/.agents/skills
-   ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
-   ```
+```bash
+git clone https://github.com/TrustLayerSOL/quant-superpowers.git ~/.codex/quant-superpowers
+```
 
-   **Windows (PowerShell):**
-   ```powershell
-   New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\.codex\superpowers\skills"
-   ```
+2. Point the global Superpowers discovery path at the clone:
 
-3. **Restart Codex** (quit and relaunch the CLI) to discover the skills.
+```bash
+mkdir -p ~/.agents/skills
 
-## Migrating from old bootstrap
+if [ -L ~/.agents/skills/superpowers ]; then
+  unlink ~/.agents/skills/superpowers
+fi
 
-If you installed superpowers before native skill discovery, you need to:
+ln -s ~/.codex/quant-superpowers/skills ~/.agents/skills/superpowers
+```
 
-1. **Update the repo:**
-   ```bash
-   cd ~/.codex/superpowers && git pull
-   ```
+If `~/.agents/skills/superpowers` is a real directory instead of a symlink, move or back it up manually. Do not install Quant Superpowers alongside the original Superpowers bundle because they contain skills with the same names.
 
-2. **Create the skills symlink** (step 2 above) — this is the new discovery mechanism.
-
-3. **Remove the old bootstrap block** from `~/.codex/AGENTS.md` — any block referencing `superpowers-codex bootstrap` is no longer needed.
-
-4. **Restart Codex.**
+3. Restart Codex.
 
 ## Verify
 
@@ -48,20 +37,20 @@ If you installed superpowers before native skill discovery, you need to:
 ls -la ~/.agents/skills/superpowers
 ```
 
-You should see a symlink (or junction on Windows) pointing to your superpowers skills directory.
+The path should be a symlink to `~/.codex/quant-superpowers/skills`.
 
-## Updating
-
-```bash
-cd ~/.codex/superpowers && git pull
-```
-
-Skills update instantly through the symlink.
-
-## Uninstalling
+## Update
 
 ```bash
-rm ~/.agents/skills/superpowers
+git -C ~/.codex/quant-superpowers pull
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/superpowers`.
+Restart Codex if the updated skills do not appear immediately.
+
+## Uninstall
+
+```bash
+if [ -L ~/.agents/skills/superpowers ]; then
+  unlink ~/.agents/skills/superpowers
+fi
+```
